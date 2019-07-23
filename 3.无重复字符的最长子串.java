@@ -21,10 +21,13 @@ class Solution {
         for(;hi<len;hi++){
             char cur=s.charAt(hi);
             if(!set.add(cur)){
+                //找到重复字符第一次出现的位置，并从set中删除期间的所有元素
+                //使用Hashmap可以将查找是否存在重复元素的时间常量时间复杂度
                 while (lo<hi&&s.charAt(lo)!=cur){
                     set.remove(s.charAt(lo));
                     lo++;
                 }
+                //将lo移动到重复字符第一次出现的地方的后一个位置
                 lo+=1;
             }
             maxLen=Math.max(maxLen,hi-lo+1);
