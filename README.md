@@ -1,2 +1,2 @@
-# LeetcodeSolution
-记录刷lettcode中的代码和笔记
+# Leetcode Solution
+记录刷Leetcode中的代码和笔记
