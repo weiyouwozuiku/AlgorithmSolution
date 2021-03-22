@@ -1,2 +1,2 @@
 # Leetcode Solution
-记录刷Leetcode中的代码和笔记
+记录Leetcode与ACWing的刷题心得与代码
