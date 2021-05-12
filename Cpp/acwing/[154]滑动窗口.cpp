@@ -16,16 +16,23 @@ int main() {
     scanf("%d%d", &n, &k);
     for (int i = 0; i < n; ++i) scanf("%d", &q[i]);
     for (int i = 0; i < n; ++i) {
+        //检查队头是否出队列
         if (hh <= tt && i - k + 1 > s[hh]) ++hh;
+        //检查单调队列队尾元素是否大于等于新入队元素
         while (hh <= tt && q[s[tt]] >= q[i]) --tt;
+        //新元素入队
         s[++tt] = i;
         if (i >= k - 1) printf("%d ", q[s[hh]]);
     }
     printf("\n");
+    //重新初始化
     hh = 0, tt = -1;
     for (int i = 0; i < n; ++i) {
+        //检查队头是否出队列
         if (hh <= tt && i - k + 1 > s[hh]) ++hh;
+        //检查单调队列队尾元素是否小于等于新入队元素
         while (hh <= tt && q[s[tt]] <= q[i]) --tt;
+        //新元素入队
         s[++tt] = i;
         if (i >= k - 1) printf("%d ", q[s[hh]]);
     }
