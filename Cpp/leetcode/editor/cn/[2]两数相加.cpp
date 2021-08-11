@@ -27,8 +27,19 @@
  */
 class Solution {
 public:
-    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-        
+    ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
+        //dummy节点表示结果链表。用-1作为虚拟头节点，cur表示运算过程中的执行节点
+        auto dummy = new ListNode(-1), cur = dummy;
+        //t存储当前位相加的值
+        int t=0;
+        while (l1 || l2 || t) {
+            if(l1) t+=l1->val,l1=l1->next;
+            if(l2) t+=l2->val,l2=l2->next;
+            //记得在更新cur->next的同时，更新cur已进行下一轮运算
+            cur=cur->next=new ListNode(t%10);
+            t/=10;
+        }
+        return dummy->next;
     }
 };
 //leetcode submit region end(Prohibit modification and deletion)
