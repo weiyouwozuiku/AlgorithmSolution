@@ -26,6 +26,7 @@ public:
             if(heap.count(re)) return {heap[re],i};
             heap[nums[i]]=i;
         }
+        //防止报错
         return {};
     }
 };
