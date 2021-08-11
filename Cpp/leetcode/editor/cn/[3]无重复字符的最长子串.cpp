@@ -45,12 +45,23 @@
 // Related Topics 哈希表 双指针 字符串 Sliding Window 
 // 👍 5164 👎 0
 
-
+/**
+ * 本题的解题思路：
+ * 双指针算法的主要优化点就是寻找题目中的单调性。假设变量i,j,i与j之间就是非重复元素的子串。
+ * 则当i向后时，j最前的位置只能是当前位置或朝后的位置。可以采用反证法证明。
+ */
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-
+        unordered_map<char, int> heap;
+        int res = 0;
+        for (int i = 0, j = 0; i < s.size(); i++) {
+            heap[s[i]]++;
+            while (heap[s[i]] > 1) heap[s[j++]]--;
+            res = max(res, i - j + 1);
+        }
+        return res;
     }
 };
 //leetcode submit region end(Prohibit modification and deletion)
