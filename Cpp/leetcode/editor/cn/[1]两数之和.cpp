@@ -22,6 +22,7 @@ public:
         unordered_map<int, int> heap;
         for (int i = 0; i < nums.size(); i++) {
             int re=target-nums[i];
+            //count函数中的值对应键值对中的key,检查是否有符合的key存在
             if(heap.count(re)) return {heap[re],i};
             heap[nums[i]]=i;
         }
