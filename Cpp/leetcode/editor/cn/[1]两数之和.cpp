@@ -18,6 +18,7 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int> &nums, int target) {
+        //heap中的键存放数组元素，值存放数组元素的索引
         unordered_map<int, int> heap;
         for (int i = 0; i < nums.size(); i++) {
             int re=target-nums[i];
