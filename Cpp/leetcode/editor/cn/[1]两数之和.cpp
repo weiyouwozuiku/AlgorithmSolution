@@ -17,13 +17,12 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int,int> heap;
-        int r;
-        for(int i=0;i<nums.size();i++){
-            r=target-nums[i];
-            if (heap.count(r)) return {heap[r],i};
-            else heap[nums[i]]=i;
+    vector<int> twoSum(vector<int> &nums, int target) {
+        unordered_map<int, int> heap;
+        for (int i = 0; i < nums.size(); i++) {
+            int re=target-nums[i];
+            if(heap.count(re)) return {heap[re],i};
+            heap[nums[i]]=i;
         }
         return {};
     }
