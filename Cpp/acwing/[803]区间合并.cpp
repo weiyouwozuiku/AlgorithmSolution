@@ -16,6 +16,7 @@ vector<PAIR> merge(vector<PAIR> &x) {
     int st = -2e9, ed = -2e9;
     for (auto itor:x) {
         if (ed < itor.first) {
+            //将上一次结果存入res队列，如果是初始状态，则不存入
             if (st != -2e9)res.push_back({st, ed});
             st = itor.first;
             ed = itor.second;
