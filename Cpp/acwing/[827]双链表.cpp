@@ -3,7 +3,6 @@
 //
 
 #include <iostream>
-#include <cstring>
 
 using namespace std;
 const int N = 1e6 + 10;
@@ -33,7 +32,6 @@ void remove(int k) {
     r[l[k]] = r[k];
     l[r[k]] = l[k];
 }
-
 
 int main() {
     int n;
