@@ -15,6 +15,7 @@ char op, str[N];
 void insert(const char *str) {
     int p = 0;
     for (int i = 0; str[i]; ++i) {
+        // 为了方便运算，将这里的字符直接转为对应的数字，直接映射下标
         int u = str[i] - 'a';
         if (!s[p][u]) s[p][u] = ++idx;
         p = s[p][u];
