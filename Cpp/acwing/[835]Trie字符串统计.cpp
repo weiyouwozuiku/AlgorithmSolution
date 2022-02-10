@@ -6,6 +6,9 @@
 
 using namespace std;
 const int N = 1e5 + 1;
+// s存放的trie数，横坐标为所有字符串个数，纵坐标为每个字符串的字符
+// cnt存放相应节点作为叶子节点的次数
+// idx记录当前处理的s数组行数
 int s[N][26], cnt[N], idx;
 char op, str[N];
 
@@ -31,7 +34,6 @@ int query(const char *str) {
 
 int main() {
     int n;
-
     scanf("%d", &n);
     getchar();
     while (n--) {
