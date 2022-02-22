@@ -61,6 +61,7 @@ int main() {
         } else if (!strcmp(op, "D")) {
             scanf("%d", &x);
             int k = ph[x];
+            // 所有heapSwap操作前保存操作变量，因为发生heapSwap之后，索引会变化
             heapSwap(k, len--);
             down(k);
             up(k);
