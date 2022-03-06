@@ -49,15 +49,15 @@ public:
         return res;
     }
 
-    void dfs(int u){
-        if(u==n){
+    void dfs(int u) {
+        if (u == n) {
             ++res;
-        } else{
-            for(int i=0;i<n;++i){
-                if(!col[i]&&!dg[u-i+n]&&!udg[u+i]){
-                    col[i]=dg[u-i+n]=udg[u+i]=true;
-                    dfs(u+1);
-                    col[i]=dg[u-i+n]=udg[u+i]= false;
+        } else {
+            for (int i = 0; i < n; ++i) {
+                if (!col[i] && !dg[u - i + n] && !udg[u + i]) {
+                    col[i] = dg[u - i + n] = udg[u + i] = true;
+                    dfs(u + 1);
+                    col[i] = dg[u - i + n] = udg[u + i] = false;
                 }
             }
         }
