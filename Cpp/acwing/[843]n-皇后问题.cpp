@@ -11,17 +11,20 @@ bool col[N], dg[N], udg[N];
 char g[N][N];
 
 void dfs(int u) {
-    if(u==n){
-        for(int i=0;i<n;i++)puts(g[i]);
+    if (u == n) {
+        for (int i = 0; i < n; i++)puts(g[i]);
         puts("");
-    } else{
+    } else {
         for (int i = 0; i < n; ++i) {
-            if(!col[i]&&!dg[u+i]&&!udg[n-u+i]){
-                g[u][i]='Q';
-                col[i]=dg[u+i]=udg[n-u+i]= true;
-                dfs(u+1);
-                col[i]=dg[u+i]=udg[n-u+i]= false;
-                g[u][i]='.';
+            // 查找列上没有皇后、正对角线和反对角线没有皇后
+            // i表示列,u表述行
+            if (!col[i] && !dg[u + i] && !udg[n - u + i]) {
+                g[u][i] = 'Q';
+                col[i] = dg[u + i] = udg[n - u + i] = true;
+                dfs(u + 1);
+                // 回复现场
+                col[i] = dg[u + i] = udg[n - u + i] = false;
+                g[u][i] = '.';
             }
         }
     }
