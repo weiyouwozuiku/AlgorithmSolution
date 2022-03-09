@@ -9,3 +9,5 @@ Cpp/leetcode/editor/cn/all.json
 *.json
 Cpp/leetcode/editor/cn/test.cpp
 .DS_Store
+Cpp/acwing/data.txt
+
