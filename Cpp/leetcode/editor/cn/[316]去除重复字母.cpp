@@ -38,11 +38,12 @@ public:
         string stk;
         // 存放当前字符是否存在stk中
         unordered_map<char, bool> box;
-        // 存放当前字符在整个人字符串的最后位置
+        // 存放当前字符在整个字符串的最后位置
         unordered_map<char, int> lastIndex;
         for (int i = 0; i < s.size(); ++i) lastIndex[s[i]] = i;
         for (int i = 0; i < s.size(); ++i) {
             if (!box[s[i]]) {
+                // 如果当前元素的字典序小于前一个元素，且前一个元素的最后所在位置比现在更靠后，则删除栈顶元素
                 while (stk.size() && s[i] < stk.back() && lastIndex[stk.back()] > i) {
                     box[stk.back()] = false;
                     stk.pop_back();
