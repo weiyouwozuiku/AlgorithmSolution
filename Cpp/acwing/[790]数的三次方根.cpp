@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-
+#include <algorithm>
 using namespace std;
 
 int main() {
@@ -13,8 +13,7 @@ int main() {
         printf("-");
         x = -x;
     }
-    double l = 0, r = x, mid;
-    if (x<1) r=1;
+    double l = 0, r = max<int>(1,x), mid;
     while (r - l >= 1e-8) {
         mid = (r + l) / 2;
         if (mid * mid * mid > x) r = mid;
