@@ -7,6 +7,7 @@
 using namespace std;
 const int N = 1e6 + 10;
 int e[N], ne[N];
+// 这里其实完成了初始化的操作
 int idx = 0, head = -1;
 
 void insertFromHead(int x) {
