@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-
+#include <cstring>
 using namespace std;
 const int N = 1e6 + 10;
 int l[N], r[N], e[N];

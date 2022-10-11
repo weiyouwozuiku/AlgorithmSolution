@@ -20,7 +20,7 @@ int main() {
     char op[2];
     for (int i = 1; i <= n; i++) s[i] = i;
     while (m--) {
-        scanf("%s%d%d", &op, &a, &b);
+        scanf("%s%d%d", op, &a, &b);
         if (op[0] == 'M') s[find(a)] = find(b);
         else {
             if (find(a) == find(b)) printf("Yes\n");
