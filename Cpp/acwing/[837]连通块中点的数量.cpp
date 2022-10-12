@@ -23,11 +23,12 @@ int main() {
     char op[3];
     int a, b;
     while (m--) {
-        scanf("%s", &op);
+        scanf("%s", op);
         if (op[0] == 'C') {
             scanf("%d%d", &a, &b);
             // 注意这里可能会同一个数内节点合并，这会导致sizeTable被多加节点，需要特判这种情况
             if (find(a) != find(b)) {
+                // 需要注意这里加树和加元素相反
                 sizeTable[find(b)] += sizeTable[find(a)];
                 s[find(a)] = find(b);
             }
