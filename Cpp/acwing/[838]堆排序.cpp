@@ -22,6 +22,7 @@ int main() {
     int n, m;
     scanf("%d%d", &n, &m);
     for (int i = 1; i <= n; i++) scanf("%d", &s[i]);
+    // 注意这个需要将len更新
     len = n;
     // 建堆
     for (int i = n >> 1; i; i--) down(i);

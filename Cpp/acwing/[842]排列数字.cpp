@@ -15,6 +15,7 @@ void dfs(int u) {
         for (int i = 0; i < n; i++) printf("%d ", path[i]);
         printf("\n");
     } else {
+        // 这里的i就是之后打印的路径
         for (int i = 1; i <= n; i++) {
             if (!log[i]) {
                 log[i] = true;
