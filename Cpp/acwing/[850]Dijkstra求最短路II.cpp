@@ -32,8 +32,7 @@ int dijkstra(int index) {
             }
         }
     }
-    if (dist[n] == 0x3f3f3f3f) return -1;
-    else return dist[n];
+    return dist[n] == 0x3f3f3f3f ? -1 : dist[n];
 }
 
 void add(int a, int b, int c) {

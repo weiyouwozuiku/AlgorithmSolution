@@ -20,14 +20,13 @@ int dijkstra(int index) {
         int t = -1; // 在还未确定最短路的点中，寻找距离最小的点
         for (int j = 1; j <= n; ++j)
             if (!st[j] && (t == -1 || dist[t] > dist[j]))t = j;
-        if (t==n) break;
+        if (t == n) break;
         st[t] = true;
         // 用t更新其他点的距离
         for (int j = 1; j <= n; ++j) dist[j] = min(dist[j], dist[t] + g[t][j]);
     }
     // 如果之后是0x3f3f3f3f则表明不是该点无法到达
-    if (dist[n] == 0x3f3f3f3f) return -1;
-    else return dist[n];
+    return dist[n] == 0x3f3f3f3f ? -1 : dist[n];
 }
 
 int main() {
