@@ -13,10 +13,10 @@ typedef pair<int, int> PII;
 
 int dijkstra(int index) {
     memset(dist, 0x3f, sizeof dist);
-    dist[1] = 0;
+    dist[index] = 0;
     // 创建小根堆
     priority_queue<PII, vector<PII>, greater<PII>> heap;
-    heap.push({0, 1});
+    heap.push({0, index});
     while (heap.size()) {
         auto t = heap.top();
         heap.pop();

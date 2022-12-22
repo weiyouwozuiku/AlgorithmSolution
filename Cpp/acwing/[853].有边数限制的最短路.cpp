@@ -18,6 +18,7 @@ int bellman_ford() {
     dist[1] = 0;
     // 这里的k限制了最多能走的边数
     for (int i = 0; i < k; ++i) {
+        // 需要注意这里一定要备份之前的数组，不然会出现更新m条边时使用了本次循环更新的dist
         memcpy(backup, dist, sizeof dist);
         for (int j = 0; j < m; ++j) {
             int a = edges[j].a, b = edges[j].b, w = edges[j].w;
