@@ -30,7 +30,6 @@ int bellman_ford() {
 
 int main() {
     scanf("%d%d%d", &n, &m, &k);
-    int a, b, x;
     for (int i = 0; i < m; ++i) {
         scanf("%d%d%d", &edges[i].a, &edges[i].b, &edges[i].w);
     }
