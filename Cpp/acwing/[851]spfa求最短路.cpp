@@ -3,13 +3,13 @@
 //
 #include <cstring>
 #include <queue>
+#include <cstdio>
 
 using namespace std;
 int n, m;
 const int N = 1e5 + 10;
 int h[N], e[N], ne[N], w[N], dist[N], idx;
 bool st[N];
-typedef pair<int, int> PII;
 
 int spfa(int index) {
     memset(dist, 0x3f, sizeof dist);
