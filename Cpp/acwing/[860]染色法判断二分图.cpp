@@ -30,7 +30,6 @@ bool dfs(int index, int c) {
 }
 
 bool check() {
-    bool flag = true;
     memset(color, -1, sizeof color);
     for (int i = 1; i <= n; ++i) {
         if (!~color[i]) {
