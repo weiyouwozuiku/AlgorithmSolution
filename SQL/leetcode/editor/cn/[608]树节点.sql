@@ -66,4 +66,11 @@
 
 #leetcode submit region begin(Prohibit modification and deletion)
 # Write your MySQL query statement below
+select id,
+       case
+           when p_id is null then 'Root'
+           -- 需要专门排除null的结果 与null比较永远是false
+           when id not in (select distinct p_id from tree where p_id is not null) then 'Leaf'
+           else 'Inner' end as type
+from tree;
 #leetcode submit region end(Prohibit modification and deletion)
