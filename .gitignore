@@ -1,9 +1,6 @@
 Cpp/cmake-build-debug/
 Cpp/CMakeLists.txt
 Cpp/main.cpp
-Cpp/.idea
-Java/.idea
-Cpp/leetcode/.idea
 Cpp/leetcode/editor/cn/translation.json
 Cpp/leetcode/editor/cn/all.json
 *.json
@@ -11,3 +8,4 @@ Cpp/leetcode/editor/cn/test.cpp
 .DS_Store
 Cpp/acwing/data.txt
 test.cpp
+.idea
