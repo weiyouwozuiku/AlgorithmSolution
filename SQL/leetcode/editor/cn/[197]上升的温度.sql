@@ -55,4 +55,9 @@
 
 #leetcode submit region begin(Prohibit modification and deletion)
 # Write your MySQL query statement below
+select a.id
+from Weather a
+         left join Weather b on a.recordDate = date_add(b.recordDate, interval 1 day)
+where b.recordDate is not null
+  and a.Temperature > b.Temperature;
 #leetcode submit region end(Prohibit modification and deletion)

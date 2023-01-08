@@ -109,4 +109,13 @@
 
 #leetcode submit region begin(Prohibit modification and deletion)
 # Write your MySQL query statement below
+select distinct name
+from SalesPerson
+         left join (select Orders.sales_id
+                    from Orders
+                             left join Company
+                                       on Orders.com_id = Company.com_id
+                    where Company.name = 'RED') as b
+                   on SalesPerson.sales_id = b.sales_id
+where b.sales_id is null;
 #leetcode submit region end(Prohibit modification and deletion)

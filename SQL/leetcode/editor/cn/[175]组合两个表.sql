@@ -1,4 +1,4 @@
-#表: Person 
+#表: Person
 #
 # 
 #+-------------+---------+
@@ -29,11 +29,11 @@
 #该表的每一行都包含一个 ID = PersonId 的人的城市和州的信息。
 # 
 #
-# 编写一个SQL查询来报告 Person 表中每个人的姓、名、城市和州。如果 personId 的地址不在 Address 表中，则报告为空 null 。 
+# 编写一个SQL查询来报告 Person 表中每个人的姓、名、城市和州。如果 personId 的地址不在 Address 表中，则报告为空 null 。
 #
-# 以 任意顺序 返回结果表。 
+# 以 任意顺序 返回结果表。
 #
-# 查询结果格式如下所示。 
+# 查询结果格式如下所示。
 #
 # 
 #
@@ -64,11 +64,12 @@
 #+-----------+----------+---------------+----------+
 #解释: 
 #地址表中没有 personId = 1 的地址，所以它们的城市和州返回 null。
-#addressId = 1 包含了 personId = 2 的地址信息。 
+#addressId = 1 包含了 personId = 2 的地址信息。
 #
 # Related Topics 数据库 👍 1264 👎 0
 
 
 #leetcode submit region begin(Prohibit modification and deletion)
 # Write your MySQL query statement below
+select firstName,lastName,city,state from Person left join Address on Address.personId=Person.personId;
 #leetcode submit region end(Prohibit modification and deletion)

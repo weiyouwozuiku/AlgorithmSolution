@@ -48,4 +48,8 @@
 
 #leetcode submit region begin(Prohibit modification and deletion)
 # Write your MySQL query statement below
+select distinct author_id as id
+from Views
+where author_id = viewer_id
+order by author_id;
 #leetcode submit region end(Prohibit modification and deletion)

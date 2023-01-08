@@ -38,7 +38,7 @@
 #leetcode submit region begin(Prohibit modification and deletion)
 # Write your MySQL query statement below
 select Name as Customers
-from (select * from Customers) as A
+from Customers A
          left join(select CustomerId from Orders) as B on A.Id = B.CustomerId
 where B.CustomerId is null;
 #leetcode submit region end(Prohibit modification and deletion)
