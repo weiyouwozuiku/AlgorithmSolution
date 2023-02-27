@@ -27,17 +27,31 @@
 // -100 <= matrix[i][j] <= 100 
 // 
 //
-// Related Topics 数组 矩阵 模拟 👍 1279 👎 0
+// Related Topics 数组 矩阵 模拟 👍 1309 👎 0
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
 public:
-    const int dx[4] = {1, 0, -1, 0}, dy[4] = {0, -1, 0, 1};
-    int res[100][100];
-
     vector<int> spiralOrder(vector <vector<int>> &matrix) {
-
+        vector<int> res;
+        int n = matrix.size();
+        if (!n) return {};
+        int m = matrix[0].size();
+        int dx[] = {0, 1, 0, -1}, dy[] = {1, 0, -1, 0};
+        for (int i = 0, x = 0, y = 0, d = 0; i < n * m; ++i) {
+            res.push_back(matrix[x][y]);
+            matrix[x][y]=INT_MAX;
+            st[x][y] = true;
+            int a = x + dx[d], b = y + dy[d];
+            // 需要注意这里的n和m
+            if (a < 0 || a >= n || b < 0 || b >= m || matrix[a][b]==INT_MAX) {
+                d = (d + 1) % 4;
+                a = x + dx[d], b = y + dy[d];
+            }
+            x = a, y = b;
+        }
+        return res;
     }
 };
 //leetcode submit region end(Prohibit modification and deletion)
