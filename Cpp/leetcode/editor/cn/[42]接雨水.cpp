@@ -33,13 +33,21 @@
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
+// 本题使用了单调栈实现，last存上一个点的高度，需要注意的是这里stk存的是索引，而不是高度
 class Solution {
 public:
     int trap(vector<int> &height) {
         int res = 0;
-        int l = 0, r = height.size();
-        while (l < r) {
-
+        stack<int> stk;
+        for (int i = 0; i < height.size(); ++i) {
+            int last = 0;
+            while (stk.size() && height[i] >= height[stk.top()]) {
+                res += (height[stk.top()] - last) * (i - stk.top() - 1);
+                last = height[stk.top()];
+                stk.pop();
+            }
+            if (stk.size()) res += (height[i] - last) * (i - stk.top() - 1);
+            stk.push(i);
         }
         return res;
     }

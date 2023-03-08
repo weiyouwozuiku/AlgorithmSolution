@@ -44,20 +44,19 @@
  */
 class Solution {
 public:
-    ListNode* deleteDuplicates(ListNode* head) {
-        if(!head||!head->next) return head;
-        ListNode* dummy=new ListNode(0);
-        dummy->next=head;
-        auto pre=dummy;
-        while(pre->next){
-            auto cur=pre->next;
-            while(cur->next&&cur->val==cur->next->val){
-                cur=cur->next;
+    ListNode *deleteDuplicates(ListNode *head) {
+        if (!head || !head->next) return head;
+        ListNode *dummy = new ListNode(0);
+        dummy->next = head;
+        auto pre = dummy;
+        while (pre->next) {
+            auto cur = pre->next;
+            while (cur->next && cur->val == cur->next->val) {
+                cur = cur->next;
             }
-            if(pre->next==cur) pre=cur;
-            else pre->next=cur->next;
+            if (pre->next == cur) pre = cur;
+            else pre->next = cur->next;
         }
-
         return dummy->next;
     }
 };
