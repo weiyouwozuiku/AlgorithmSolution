@@ -1,8 +1,8 @@
 //
 // Created by king on 2023/7/6.
 //
-#include <iostream>
-
+#include <cstdio>
+#include <algorithm>
 using namespace std;
 const int N = 1001;
 int v[N], w[N];
@@ -18,7 +18,7 @@ void twoDimension(int n, int m) {
             }
         }
     }
-    printf("%d\n", f[n][m]);
+    printf("%d", f[n][m]);
 }
 
 void oneDimension(int n, int m) {
@@ -27,7 +27,7 @@ void oneDimension(int n, int m) {
             ff[j] = max(ff[j], ff[j - v[i]] + w[i]);
         }
     }
-    printf("%d\n", ff[m]);
+    printf("%d", ff[m]);
 }
 
 int main() {
