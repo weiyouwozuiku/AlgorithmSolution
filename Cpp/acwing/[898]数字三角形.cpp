@@ -14,7 +14,9 @@ int main() {
     for (int i = 1; i <= n; ++i)
         for (int j = 1; j <= i; ++j)
             scanf("%d", &a[i][j]);
+    // 初始化路径数组
     for (int i = 1; i <= n; ++i)
+        // 特别注意这里需要放宽循环，以便f(0,x)和f(i,j)在边界情况下没有初始化
         for (int j = 0; j <= i + 1; ++j)
             f[i][j] = -1e9;
     f[1][1] = a[1][1];
