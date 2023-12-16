@@ -76,10 +76,10 @@ public:
             return 0;
         for (int i = 0, j = 0; i < size; ++i) {
             sum[map(s[i])] += 1;
-            if (total[0] - sum[0] <= n && total[1] - sum[1] <= n && total[2] - sum[2] <= n && total[3] - sum[3] <= n) {
-                while (j <= i && total[map(s[j])] - sum[map(s[j])] + 1 <= n)
-                    sum[map(s[j++])] -= 1;
+            while (total[0] - sum[0] <= n && total[1] - sum[1] <= n && total[2] - sum[2] <= n &&
+                   total[3] - sum[3] <= n) {
                 res = min(res, i - j + 1);
+                sum[map(s[j++])] -= 1;
             }
         }
         return res;

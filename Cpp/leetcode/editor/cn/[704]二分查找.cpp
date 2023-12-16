@@ -41,7 +41,7 @@ public:
                 r = mid - 1;
             }
         }
-        if (nums[l] == target) return l;
+        if (nums[r] == target) return l;
         else return -1;
     }
 };

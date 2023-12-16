@@ -48,8 +48,15 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& numbers, int target) {
-
+    vector<int> twoSum(vector<int> &numbers, int target) {
+        int l = 0, r = numbers.size() - 1, tmp = 0;
+        while (l < r) {
+            tmp = numbers[l] + numbers[r];
+            if (tmp == target) return {l + 1, r + 1};
+            if (tmp < target) l += 1;
+            if (tmp > target) r -= 1;
+        }
+        return {-1, -1};
     }
 };
 //leetcode submit region end(Prohibit modification and deletion)

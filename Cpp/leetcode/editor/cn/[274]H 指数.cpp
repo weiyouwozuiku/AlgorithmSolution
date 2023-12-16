@@ -39,12 +39,15 @@ public:
     int hIndex(vector<int> &citations) {
         int len = citations.size(), res = 0;
         sort(citations.begin(), citations.end());
-        for (int i = 0; i < citations.size(); ++i)
-            if (len - i <= citations[i]) {
-                res = len - i;
-                break;
-            }
-        return res;
+//        for (int i = 0; i < citations.size(); ++i)
+//            if (len - i <= citations[i]) {
+//                res = len - i;
+//                break;
+//            }
+        for (int i = len - 1; i >= 0; --i) {
+            if (len - i > citations[i]) return len - i - 1;
+        }
+        return len;
     }
 };
 //leetcode submit region end(Prohibit modification and deletion)
