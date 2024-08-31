@@ -37,8 +37,12 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
 public:
-    void moveZeroes(vector<int>& nums) {
-
+    void moveZeroes(vector<int> &nums) {
+        // 先找到不等于0的数给数组的前面赋值,之后补0
+        int i = 0;
+        for (auto &x: nums)
+            if (x) nums[i++] = x;
+        while (i < nums.size()) nums[i++] = 0;
     }
 };
 //leetcode submit region end(Prohibit modification and deletion)
