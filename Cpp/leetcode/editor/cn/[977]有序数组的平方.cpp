@@ -39,13 +39,21 @@
 // 
 //
 // Related Topics 数组 双指针 排序 👍 692 👎 0
-
+#include <vector>
+using namespace std;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
 public:
-    vector<int> sortedSquares(vector<int>& nums) {
-
+    vector<int> sortedSquares(vector<int> &nums) {
+        vector<int> result(nums.size());
+        int i = 0, j = nums.size() - 1, p = j;
+        while (i <= j) {
+            if (abs(nums[i]) >= nums[j]) result[p--] = nums[i] * nums[i], ++i;
+            else result[p--] = nums[j] * nums[j], --j;
+        }
+        return result;
     }
 };
+
 //leetcode submit region end(Prohibit modification and deletion)
