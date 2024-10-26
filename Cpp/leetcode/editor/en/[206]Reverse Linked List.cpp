@@ -1,4 +1,6 @@
-//Given the head of a singly linked list, reverse the list, and return the 
+#include <cstdio>
+#include <ctime>
+//Given the head of a singly linked list, reverse the list, and return the
 //reversed list. 
 //
 // 
@@ -36,7 +38,19 @@
 //Could you implement both? 
 //
 // Related Topics Linked List Recursion 👍 21947 👎 463
+struct ListNode {
+    int val;
+    ListNode *next;
 
+    ListNode() : val(0), next(nullptr) {
+    }
+
+    ListNode(int x) : val(x), next(nullptr) {
+    }
+
+    ListNode(int x, ListNode *next) : val(x), next(next) {
+    }
+};
 
 //leetcode submit region begin(Prohibit modification and deletion)
 /**
@@ -50,22 +64,18 @@
  * };
  */
 class Solution {
-    struct ListNode {
-        int val;
-        ListNode *next;
-
-        ListNode() : val(0), next(nullptr) {
-        }
-
-        ListNode(int x) : val(x), next(nullptr) {
-        }
-
-        ListNode(int x, ListNode *next) : val(x), next(next) {
-        }
-    };
-
 public:
     ListNode *reverseList(ListNode *head) {
+        if (!head) return nullptr;
+        if (head->next == nullptr) return head;
+        auto p = head, q = p->next;
+        while (q) {
+            auto tmp = q->next;
+            q->next = p;
+            p = q, q = tmp;
+        }
+        head->next = nullptr;
+        return p;
     }
 };
 
