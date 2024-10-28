@@ -33,19 +33,24 @@
 // 
 //
 // Related Topics 数组 动态规划 👍 2822 👎 0
-
-
+#include<vector>
+using namespace std;
 //leetcode submit region begin(Prohibit modification and deletion)
 // 本题利用dp，最大的收益就是max(昨日的最大收益,今天价格-历史最低价)
 class Solution {
 public:
     int maxProfit(vector<int> &prices) {
-        int res = 0;
-        for (int i = 0, minp = INT_MAX; i < prices.size(); ++i) {
-            res = max(res, prices[i] - minp);
-            minp = min(prices[i], minp);
-        }
-        return res;
+        // int res = 0;
+        // for (int i = 0, minp = INT_MAX; i < prices.size(); ++i) {
+        //     res = max(res, prices[i] - minp);
+        //     minp = min(prices[i], minp);
+        // }
+        // return res;
+        // 空间优化版本
+        int min_price = prices[0], f = 0;
+        for (auto i: prices)f = max(f, i - min_price), min_price = min(min_price, i);
+        return f;
     }
 };
+
 //leetcode submit region end(Prohibit modification and deletion)
