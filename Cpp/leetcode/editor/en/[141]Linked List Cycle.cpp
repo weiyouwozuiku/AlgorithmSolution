@@ -49,7 +49,16 @@
 // Follow up: Can you solve it using O(1) (i.e. constant) memory? 
 //
 // Related Topics Hash Table Linked List Two Pointers 👍 15815 👎 1422
+#include <iostream>
+using namespace std;
 
+struct ListNode {
+    int val;
+    ListNode *next;
+
+    ListNode(int x) : val(x), next(NULL) {
+    }
+};
 
 //leetcode submit region begin(Prohibit modification and deletion)
 /**
@@ -63,7 +72,15 @@
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
-        
+        if (!head || !head->next) return false;
+        while (head) {
+            if (head->val == INT_MAX) return true;
+            head->val = INT_MAX;
+            if (!head->next) return false;
+            head = head->next;
+        }
+        return false;
     }
 };
+
 //leetcode submit region end(Prohibit modification and deletion)
