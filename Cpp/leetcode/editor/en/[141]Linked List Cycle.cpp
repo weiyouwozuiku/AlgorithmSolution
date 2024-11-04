@@ -72,12 +72,21 @@ struct ListNode {
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
+        // 修改原本元素
+        // if (!head || !head->next) return false;
+        // while (head) {
+        //     if (head->val == INT_MAX) return true;
+        //     head->val = INT_MAX;
+        //     if (!head->next) return false;
+        //     head = head->next;
+        // }
+        // return false;
+        // 快慢指针版本
         if (!head || !head->next) return false;
-        while (head) {
-            if (head->val == INT_MAX) return true;
-            head->val = INT_MAX;
-            if (!head->next) return false;
-            head = head->next;
+        auto slow = head, fast = head;
+        while (fast && fast->next) {
+            slow = slow->next, fast = fast->next->next;
+            if (slow == fast) return true;
         }
         return false;
     }
