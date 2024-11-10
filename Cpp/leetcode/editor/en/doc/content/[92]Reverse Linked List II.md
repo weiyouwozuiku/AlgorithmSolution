@@ -28,4 +28,4 @@
 <p>&nbsp;</p> 
 <strong>Follow up:</strong> Could you do it in one pass?
 
-<div><div>Related Topics</div><div><li>Linked List</li></div></div><br><div><li>👍 11841</li><li>👎 653</li></div>
+<div><div>Related Topics</div><div><li>Linked List</li></div></div><br><div><li>👍 11842</li><li>👎 653</li></div>
