@@ -60,7 +60,7 @@ public:
             else r = mid - 1;
         }
         if (nums[r] == target) return r;
-        else return -1;
+        return -1;
     }
 };
 

@@ -35,8 +35,8 @@ public:
         if (l >= r) return nums[l];
         int x = nums[l + (r - l) / 2], i = l - 1, j = r + 1;
         while (i < j) {
-            do ++i;while (nums[i] > x);
-            do --j;while (nums[j] < x);
+            while (nums[++i] > x);
+            while (nums[--j] < x);
             if (i < j) swap(nums[i], nums[j]);
         }
         if (k <= j) return binerySort(nums, l, j, k);
